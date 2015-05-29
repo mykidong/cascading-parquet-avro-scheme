@@ -1,6 +1,8 @@
 # cascading-parquet-avro-scheme
 This is Cascading Parquet Avro Scheme which can be used with avro schema.
 
+This Cascading Scheme conforms to Cascading 3.0 API.
+
 
 # Usage
 For instance, in the classpath, Avro Schema File '/META-INF/avro/item-view-event.avsc' would look lik this:
