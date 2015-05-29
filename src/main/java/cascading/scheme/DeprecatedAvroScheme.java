@@ -385,7 +385,7 @@ public class DeprecatedAvroScheme extends Scheme<Configuration, RecordReader, Ou
 
     @Override
     public String toString() {
-        return "AvroScheme{" +
+        return "DeprecatedAvroScheme{" +
                 "schema=" + schema +
                 '}';
     }
