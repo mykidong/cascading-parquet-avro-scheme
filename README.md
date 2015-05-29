@@ -85,3 +85,20 @@ To instantiate ParquetAvroScheme:
 	// source or sink tap.
 	Tap tap = new Hfs(itemViewEventParquetScheme, "/parquet-path");	
 
+
+# Maven
+
+  ```xml
+  <repository>
+	<id>conjars.org</id>
+	<url>http://conjars.org/repo</url>
+  </repository>
+  ```
+
+  ```xml
+  <dependency>
+  	<groupId>cascading-scheme</groupId>
+  	<artifactId>cascading-parquet-avro-scheme</artifactId>
+  	<version>0.1.0-SNAPSHOT</version>
+  </dependency>
+  ```
