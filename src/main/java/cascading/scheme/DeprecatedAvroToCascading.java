@@ -12,28 +12,25 @@ import org.apache.avro.Schema.Field;
 import org.apache.avro.Schema.Type;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericData.Fixed;
-import org.apache.avro.generic.IndexedRecord;
+import org.apache.avro.generic.GenericData.Record;
 import org.apache.hadoop.io.BytesWritable;
 
 import cascading.tuple.Tuple;
 
 public class DeprecatedAvroToCascading {
 
-    public static Object[] parseRecord(IndexedRecord record, Schema readerSchema) {
+    public static Object[] parseRecord(Record record, Schema readerSchema) {
 
         Object[] result = new Object[readerSchema.getFields().size()];
         Schema writerSchema = record.getSchema();
-        System.out.println("writerSchema: [" + writerSchema.toString() + "]");
-        
-        System.out.println("readerSchema: [" + readerSchema.toString() + "]");
-        
+      
         List<Field> schemaFields = readerSchema.getFields();
         for (int i = 0; i < schemaFields.size(); i++) {
             Field field = schemaFields.get(i);
             if (writerSchema.getField(field.name()) == null) {
                 throw new AvroRuntimeException("Not a valid schema field: " + field.name());
-            }
-            Object obj = record.get(i);
+            }         
+            Object obj = record.get(field.name());
             result[i] = fromAvro(obj, field.schema());
 
         }
@@ -62,7 +59,7 @@ public class DeprecatedAvroToCascading {
                 return fromAvroBytes((ByteBuffer) obj);
 
             case RECORD:
-                Object[] objs = parseRecord((IndexedRecord) obj, schema);
+                Object[] objs = parseRecord((Record) obj, schema);
                 Tuple result = new Tuple();
                 result.addAll(objs);
                 return result;
