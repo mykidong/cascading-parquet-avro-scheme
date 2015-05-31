@@ -16,14 +16,11 @@ import org.apache.hadoop.mapred.OutputFormat;
 import org.apache.hadoop.mapred.RecordReader;
 
 import parquet.avro.AvroReadSupport;
-import parquet.avro.io.AvroParquetOutputCommitter;
 import parquet.avro.io.AvroParquetInputFormat;
+import parquet.avro.io.AvroParquetOutputCommitter;
 import parquet.avro.io.AvroParquetOutputFormat;
-import cascading.avro.AvroToCascading;
 import cascading.avro.serialization.AvroSpecificRecordSerialization;
 import cascading.flow.FlowProcess;
-import cascading.scheme.DeprecatedAvroScheme;
-import cascading.scheme.SourceCall;
 import cascading.tap.Tap;
 import cascading.tuple.Tuple;
 
