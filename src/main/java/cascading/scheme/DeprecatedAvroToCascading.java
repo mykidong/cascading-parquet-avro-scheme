@@ -23,10 +23,7 @@ public class DeprecatedAvroToCascading {
 
         Object[] result = new Object[readerSchema.getFields().size()];
         Schema writerSchema = record.getSchema();
-        
-        System.out.println("writerSchema: [" + writerSchema.toString() + "]");
-        System.out.println("readerSchema: [" + readerSchema.toString() + "]");
-      
+     
         List<Field> schemaFields = readerSchema.getFields();
         for (int i = 0; i < schemaFields.size(); i++) {
             Field field = schemaFields.get(i);

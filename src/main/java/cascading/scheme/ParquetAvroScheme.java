@@ -9,14 +9,16 @@ import org.apache.avro.generic.GenericData.Record;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.mapred.AvroSerialization;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.mapreduce.InputFormat;
+import org.apache.hadoop.mapred.InputFormat;
 import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapreduce.OutputFormat;
+import org.apache.hadoop.mapred.OutputCommitter;
+import org.apache.hadoop.mapred.OutputFormat;
 import org.apache.hadoop.mapred.RecordReader;
 
-import parquet.avro.AvroParquetInputFormat;
-import parquet.avro.AvroParquetOutputFormat;
 import parquet.avro.AvroReadSupport;
+import parquet.avro.io.AvroParquetInputFormat;
+import parquet.avro.io.AvroParquetOutputCommitter;
+import parquet.avro.io.AvroParquetOutputFormat;
 import cascading.avro.serialization.AvroSpecificRecordSerialization;
 import cascading.flow.FlowProcess;
 import cascading.tap.Tap;
@@ -83,7 +85,7 @@ public class ParquetAvroScheme extends DeprecatedAvroScheme {
 		
 		// Set the input schema and input class
 		conf.set("parquet.avro.schema", schema.toString());		
-		
+		conf.setClass("mapred.output.committer.class", AvroParquetOutputCommitter.class, OutputCommitter.class);	
 		conf.setClass("mapred.output.format.class", AvroParquetOutputFormat.class, OutputFormat.class);
 		
 		
