@@ -56,7 +56,7 @@ public class ParquetAvroScheme extends DeprecatedAvroScheme {
 		Tuple tuple = sourceCall.getIncomingEntry().getTuple();
 		tuple.clear();
 
-		Object[] split = AvroToCascading.parseRecord(record, schema);
+		Object[] split = DeprecatedAvroToCascading.parseRecord(record, schema);
 		tuple.addAll(split);
 
 		return true;
