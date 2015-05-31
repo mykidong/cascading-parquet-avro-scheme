@@ -9,9 +9,9 @@ import org.apache.avro.generic.GenericData.Record;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.mapred.AvroSerialization;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.mapred.InputFormat;
+import org.apache.hadoop.mapreduce.InputFormat;
 import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.OutputFormat;
+import org.apache.hadoop.mapreduce.OutputFormat;
 import org.apache.hadoop.mapred.RecordReader;
 
 import parquet.avro.AvroParquetInputFormat;
