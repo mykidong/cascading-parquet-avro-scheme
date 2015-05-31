@@ -9,60 +9,25 @@ For instance, in the classpath, Avro Schema File '/META-INF/avro/item-view-event
 
  ```json
  {
-    "type":"record",
-   "name":"ItemViewEvent",
-   "namespace":"avro.domain.event.schema",
+   "type":"record",
+   "name":"ItemViewEvent",   
    "fields":[
-      {
+   	  {
          "name":"baseProperties",
-         "type":[
-            "null",
-            {
-               "type":"record",
-               "name":"BaseProperties",
-               "namespace":"avro.domain.event.schema",
-               "fields":[
-                  {
-                     "name":"serviceId",
-                     "type":[
-                        "null",
-                        "string"
-                     ]
-                  },
-                  {
-                     "name":"uid",
-                     "type":[
-                        "null",
-                        "string"
-                     ]
-                  },
-                  {
-                     "name":"pcid",
-                     "type":[
-                        "null",
-                        "string"
-                     ]
-                  },                  
-                  {
-                     "name":"timestamp",
-                     "type":[
-                        "null",
-                        "long"
-                     ]
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "name":"itemId",
-         "type":[
-            "null",
-            "string"
-         ]
-      }
+         "type":{
+           "type":"record",
+           "name":"BaseProperties",         
+           "fields":[             
+              {"name":"serviceId", "type":"string"},           
+              {"name":"uid", "type":["null", "string"]},
+              {"name":"pcid", "type":"string"}, 
+              {"name":"timestamp", "type":"long"}
+           ]
+         }         
+      }, 
+      {"name":"itemId", "type":"string"}    
    ]
- }
+}
  ```
 
 
