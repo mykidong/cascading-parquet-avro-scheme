@@ -5,7 +5,7 @@ This Cascading Scheme conforms to Cascading 3.0 API.
 
 
 # Usage
-For instance, in the classpath, Avro Schema File '/META-INF/avro/item-view-event.avsc' would look lik this:
+For instance, in the classpath, Avro Schema File '/META-INF/avro/item-view-event.avsc' would look like this:
 
  ```json
  {
