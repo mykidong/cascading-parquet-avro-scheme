@@ -26,6 +26,9 @@ import cascading.tuple.Tuple;
 
 public class ParquetAvroScheme extends DeprecatedAvroScheme {
 	
+	private static final long serialVersionUID = 1L;
+	
+	
 	public ParquetAvroScheme(Schema schema)
 	{
 		super(schema);
@@ -106,5 +109,33 @@ public class ParquetAvroScheme extends DeprecatedAvroScheme {
 		conf.setStrings("io.serializations",
 				serializations.toArray(new String[serializations.size()]));
 	}
+	
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        ParquetAvroScheme that = (ParquetAvroScheme) o;
+
+        if (schema != null ? !schema.equals(that.schema) : that.schema != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "ParquetAvroScheme{" +
+                "schema=" + schema +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+    	
+        return 31 * getSinkFields().hashCode() +
+                (schema == null ? 0 : schema.hashCode());
+    }
 
 }
