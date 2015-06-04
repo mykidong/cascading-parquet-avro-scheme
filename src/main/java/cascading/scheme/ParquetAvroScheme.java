@@ -25,6 +25,8 @@ import cascading.tap.Tap;
 import cascading.tuple.Tuple;
 
 public class ParquetAvroScheme extends DeprecatedAvroScheme {
+	
+	private static final long serialVersionUID = -1854199636094266597L;
 
 	public ParquetAvroScheme(Schema schema) {
 		super(schema);
